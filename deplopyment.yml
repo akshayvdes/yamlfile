@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat2
+  labels:
+    app: build2
+spec:
+  replicas: 6
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 4
+  selector:
+    matchLabels:
+      app: build2
+  template:
+    metadata:
+      labels:
+        app: build2
+    spec:
+      containers:
+        - name: tomcat1
+          image: docker.io/akshayvdes/tomcatnew_ak:29
+
+
