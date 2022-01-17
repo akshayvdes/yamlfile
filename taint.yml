@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tomcat5
+  namespace: avd1
+  labels:
+    app: build5
+spec:
+  replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 4
+  selector:
+    matchLabels:
+      app: build5
+  template:
+    metadata:
+      labels:
+        app: build5
+    spec:
+      containers:
+        - name: tomcat1
+          image: docker.io/akshayvdes/tomcatnew_ak:29
+      tolerations:
+        - key: "color"
+          operator: "Equal"
+          value: "red"
+          effect: "NoSchedule"
+
+

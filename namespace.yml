@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: tomcat3
+  labels:
+    app: build3
+spec:
+  selector:
+    matchLabels:
+      app: build3
+  template:
+    metadata:
+      labels:
+        app: build3
+    spec:
+      containers:
+        - name: tomcat1
+          image: docker.io/akshayvdes/tomcatnew_ak:29
+
+
