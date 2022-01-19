@@ -23,6 +23,7 @@ spec:
         - name: tomcat1
           image: docker.io/akshayvdes/tomcatnew_ak:29
       nodeSelector:
-        - color: green
+        color: green
+        color: red 
 
 

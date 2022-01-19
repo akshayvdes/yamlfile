@@ -22,5 +22,14 @@ spec:
       containers:
         - name: tomcat1
           image: docker.io/akshayvdes/tomcatnew_ak:29
+          volumeMounts: 
+            - name: myvolume
+              mountPath: /usr/local/tomcat/webapps
+      volumes:
+        - name: myvolume
+          hostPath: 
+            path: /root/folder1
+            type: Directory 
+              
 
 
